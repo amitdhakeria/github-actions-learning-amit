@@ -1,0 +1,28 @@
+#Name of the workflow
+name: CI/CD
+
+on: workflow_dispatch
+
+jobs:
+  pull:
+      runs-on: ubuntu-latest
+      steps:
+        - name: "checkout the code"
+          run: echo "code checkout"
+  build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: "build the code"
+          run: echo "code build"
+          
+  Test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: "test the code"
+          run: echo "code tested"
+  deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: "deploy the code"
+          run: echo "code is deployed"
+          
