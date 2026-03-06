@@ -13,5 +13,5 @@ jobs:
           run: echo "hey hello Amit"
 
         - name: "say hello to ubuntu user"
-          run: "Hello $USER"
+          run: echo "Hello $USER"
           
