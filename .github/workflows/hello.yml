@@ -1,8 +1,7 @@
 #This is the workflow name
 name: Hello
 on: 
- push:
-   branches: main
+ workflow_dispatch: 
 
 #These are the job inside the workflow
 jobs:
