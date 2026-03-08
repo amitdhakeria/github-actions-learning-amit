@@ -7,61 +7,60 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins;
+scroll-behavior:smooth;
 }
 
 body{
-height:100vh;
-background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1a2a6c);
-background-size:400% 400%;
-animation:gradient 15s ease infinite;
+background:#0f172a;
 color:white;
+overflow-x:hidden;
 }
 
-@keyframes gradient{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
 /* NAVBAR */
 
 nav{
 position:fixed;
-top:0;
+top:20px;
 width:100%;
 display:flex;
 justify-content:center;
-padding:20px;
-z-index:100;
+z-index:1000;
 }
 
-.nav-container{
+.nav{
 display:flex;
-gap:40px;
+gap:35px;
 padding:15px 35px;
-border-radius:20px;
-
-background:rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.07);
 backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.2);
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 nav a{
 color:white;
 text-decoration:none;
-font-weight:500;
-transition:0.3s;
+transition:.3s;
 }
 
 nav a:hover{
-color:#00eaff;
+color:#38bdf8;
 }
 
 /* SECTIONS */
@@ -69,9 +68,9 @@ color:#00eaff;
 section{
 min-height:100vh;
 display:flex;
-justify-content:center;
 align-items:center;
-padding:100px 10%;
+justify-content:center;
+padding:120px 10%;
 }
 
 .container{
@@ -88,88 +87,97 @@ gap:40px;
 align-items:center;
 }
 
-.hero-text h1{
+.hero h1{
 font-size:55px;
-margin-bottom:20px;
 }
 
-.hero-text span{
-color:#00eaff;
+.highlight{
+color:#38bdf8;
 }
 
-.hero-text p{
-opacity:0.85;
-margin-bottom:30px;
+.hero p{
+opacity:.8;
+margin:20px 0 30px;
 }
+
+/* BUTTON */
 
 .btn{
-display:inline-block;
 padding:12px 28px;
 border-radius:30px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.2);
-transition:0.3s;
+background:linear-gradient(45deg,#38bdf8,#6366f1);
+border:none;
+color:white;
 cursor:pointer;
+transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-4px);
-background:#00eaff;
-color:black;
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
 /* GLASS CARD */
 
-.glass-card{
-padding:30px;
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
 border-radius:20px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,0.2);
-transition:0.35s;
+padding:30px;
+border:1px solid rgba(255,255,255,0.1);
+transition:.4s;
 }
 
-.glass-card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 15px 35px rgba(0,0,0,0.4);
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.5);
 }
 
 /* SKILLS */
 
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-margin-top:40px;
+.skill{
+margin-bottom:20px;
+}
+
+.bar{
+height:10px;
+background:rgba(255,255,255,.1);
+border-radius:20px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
 }
 
 /* PROJECTS */
 
-.project-grid{
+.projects{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
 margin-top:40px;
 }
 
-/* CONTACT */
+/* TERMINAL */
 
-.contact{
-text-align:center;
+.terminal{
+background:#020617;
+border-radius:15px;
+padding:25px;
+font-family:monospace;
+color:#22c55e;
+line-height:1.8;
 }
 
-.contact h2{
-margin-bottom:20px;
-}
+/* FOOTER */
 
 footer{
 text-align:center;
-padding:30px;
-opacity:0.6;
+padding:40px;
+opacity:.6;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -185,48 +193,47 @@ text-align:center;
 
 <body>
 
+<div id="particles-js"></div>
+
 <nav>
-<div class="nav-container">
+<div class="nav">
 <a href="#home">Home</a>
-<a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
+<a href="#terminal">Terminal</a>
 </div>
 </nav>
 
-
-<!-- HERO -->
 
 <section id="home">
 
 <div class="container hero">
 
-<div class="hero-text">
+<div>
 
-<h1>Hello, I'm <span>Amit Pal</span></h1>
+<h1>Hello, I'm <span class="highlight">Amit Pal</span></h1>
+
+<h2 id="typing"></h2>
 
 <p>
-DevOps & Cloud enthusiast learning modern infrastructure tools.
-I enjoy working with Linux, Git, Docker and networking fundamentals
-while building real-world projects.
+DevOps learner exploring Linux, Docker, Git and Cloud technologies.
 </p>
 
-<a class="btn" href="#projects">View My Work</a>
+<button class="btn">View Projects</button>
 
 </div>
 
-<div class="glass-card">
+<div class="card">
 
-<h2>🚀 Current Focus</h2>
+<h3>Current Focus</h3>
 
 <br>
 
-<p>• DevOps Engineering</p>
-<p>• Docker & Containers</p>
-<p>• Git & GitHub workflows</p>
-<p>• Linux system management</p>
-<p>• Networking fundamentals</p>
+<p>🐳 Docker Containers</p>
+<p>🐧 Linux Systems</p>
+<p>🌐 Networking Basics</p>
+<p>☁ Cloud Infrastructure</p>
+<p>⚡ DevOps Automation</p>
 
 </div>
 
@@ -234,45 +241,6 @@ while building real-world projects.
 
 </section>
 
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container">
-
-<div class="glass-card">
-
-<h2>About Me</h2>
-
-<br>
-
-<p>
-
-I'm a technology enthusiast focused on understanding how modern
-infrastructure works under the hood.
-
-Currently exploring:
-
-• Linux systems  
-• Docker containers  
-• Git workflows  
-• Cloud infrastructure  
-• Networking fundamentals
-
-I enjoy breaking complex systems into simple concepts and building
-practical projects to strengthen my understanding.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SKILLS -->
 
 <section id="skills">
 
@@ -280,23 +248,32 @@ practical projects to strengthen my understanding.
 
 <h2>Skills</h2>
 
-<div class="skills-grid">
+<br>
 
-<div class="glass-card">Linux</div>
-<div class="glass-card">Docker</div>
-<div class="glass-card">Git & GitHub</div>
-<div class="glass-card">Networking Basics</div>
-<div class="glass-card">AWS Basics</div>
-<div class="glass-card">Shell Scripting</div>
+<div class="skill">
+<p>Linux</p>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
 
+<div class="skill">
+<p>Docker</p>
+<div class="bar"><div class="fill" style="width:80%"></div></div>
+</div>
+
+<div class="skill">
+<p>Git / GitHub</p>
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+<div class="skill">
+<p>Networking</p>
+<div class="bar"><div class="fill" style="width:70%"></div></div>
 </div>
 
 </div>
 
 </section>
 
-
-<!-- PROJECTS -->
 
 <section id="projects">
 
@@ -304,21 +281,21 @@ practical projects to strengthen my understanding.
 
 <h2>Projects</h2>
 
-<div class="project-grid">
+<div class="projects">
 
-<div class="glass-card">
-<h3>Docker Container Demo</h3>
-<p>Built and ran Linux containers using Docker and custom images.</p>
+<div class="card">
+<h3>Docker Image Lab</h3>
+<p>Built custom Docker images and practiced container lifecycle.</p>
 </div>
 
-<div class="glass-card">
+<div class="card">
 <h3>Git Workflow Practice</h3>
-<p>Practiced branching strategies, pull requests and repository management.</p>
+<p>Practiced branching strategies and pull requests.</p>
 </div>
 
-<div class="glass-card">
-<h3>AWS Linux Server</h3>
-<p>Launched and managed Linux EC2 instances for development practice.</p>
+<div class="card">
+<h3>AWS EC2 Server</h3>
+<p>Launched and managed Linux EC2 instances.</p>
 </div>
 
 </div>
@@ -328,23 +305,27 @@ practical projects to strengthen my understanding.
 </section>
 
 
-<!-- CONTACT -->
+<section id="terminal">
 
-<section id="contact">
+<div class="container">
 
-<div class="container contact">
-
-<div class="glass-card">
-
-<h2>Contact</h2>
+<h2>DevOps Terminal</h2>
 
 <br>
 
-<p>Interested in collaborating or discussing DevOps?</p>
+<div class="terminal">
 
-<br>
+$ docker build -t my-image .  
+✔ Image built successfully  
 
-<a class="btn">Connect With Me</a>
+$ docker run my-image  
+Hello from container  
+
+$ git push origin main  
+✔ Code pushed to GitHub  
+
+$ ssh user@server  
+Connected to Linux server  
 
 </div>
 
@@ -358,6 +339,62 @@ practical projects to strengthen my understanding.
 © 2026 Amit Pal — DevOps Portfolio
 
 </footer>
+
+
+<script>
+
+/* typing animation */
+
+const words=["DevOps Learner","Linux Enthusiast","Docker Explorer","Cloud Explorer"]
+
+let i=0
+let j=0
+let current=""
+let isDeleting=false
+
+function type(){
+
+current=words[i]
+
+if(isDeleting){
+
+document.getElementById("typing").textContent=current.substring(0,j--)
+
+if(j<0){
+isDeleting=false
+i++
+if(i==words.length)i=0
+}
+
+}else{
+
+document.getElementById("typing").textContent=current.substring(0,j++)
+
+if(j>current.length){
+isDeleting=true
+setTimeout(type,1000)
+return
+}
+
+}
+
+setTimeout(type,100)
+
+}
+
+type()
+
+particlesJS("particles-js",{
+particles:{
+number:{value:70},
+size:{value:3},
+move:{speed:1},
+line_linked:{enable:true},
+color:{value:"#38bdf8"}
+}
+})
+
+</script>
 
 </body>
 </html>
