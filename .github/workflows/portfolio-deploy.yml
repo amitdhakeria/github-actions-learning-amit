@@ -3,6 +3,7 @@ name: Portfolio_deployment
 on: 
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
     
