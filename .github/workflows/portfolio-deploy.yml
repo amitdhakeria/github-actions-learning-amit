@@ -8,7 +8,7 @@ jobs:
     
     deploy:
 
-        runs-on: ubuntu_latest
+        runs-on: ubuntu-latest
         env:
             name: Github-pages
             url: steps.deploy.output.page_url
