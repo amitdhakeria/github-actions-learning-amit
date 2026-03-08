@@ -11,17 +11,20 @@ jobs:
           run: echo "code checkout"
   build:
       runs-on: ubuntu-latest
+      needs: pull
       steps:
         - name: "build the code"
           run: echo "code build"
           
   Test:
       runs-on: ubuntu-latest
+      needs: build
       steps:
         - name: "test the code"
           run: echo "code tested"
   deploy:
       runs-on: ubuntu-latest
+      needs: Test
       steps:
         - name: "deploy the code"
           run: echo "code is deployed"
