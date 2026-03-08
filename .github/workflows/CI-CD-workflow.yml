@@ -1,7 +1,9 @@
 #Name of the workflow
 name: CI/CD
 
-on: workflow_dispatch
+on:
+   push:
+     branches: main
 
 jobs:
   pull:
