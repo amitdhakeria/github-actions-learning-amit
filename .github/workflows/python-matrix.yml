@@ -1,0 +1,27 @@
+name: python-lintel
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+    lintel-check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: code-checout
+              uses: actions/checkout@v4
+
+
+            - name: python steup
+              uses: actions/setup-python@v5
+              with:
+                python-version: 3.13
+
+                
+            - name: install dependencies
+              run: pip install -r requirement.txt
+
+            - name: run linter
+              run: flake8 app.py
