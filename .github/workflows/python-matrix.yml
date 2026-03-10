@@ -8,6 +8,11 @@ jobs:
 
     lintel-check:
         runs-on: ubuntu-latest
+        strategy:
+          fail-fast: False
+          matrix: 
+            python-versions: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+
 
         steps:
             - name: code-checout
@@ -17,7 +22,7 @@ jobs:
             - name: python steup
               uses: actions/setup-python@v5
               with:
-                python-version: 3.13
+                python-version: ${{matrix.python-versions}}
 
                 
             - name: install dependencies
