@@ -14,15 +14,10 @@ jobs:
               uses: actions/checkout@v4
 
             - name: deploy with docket compose
-              uses: hoverkraft-tech/compose-action@v2.5.0
-              
-              with:
-                compose-file: "./docker-compose.yml"
-                services: |
-                  app
-                up-flags: "--pull always"
-                down-flags: ""
+              run: |
+                docker compose down || true
+                docker compose pull
+                docker compose up -d
 
 
-
-    
+            
