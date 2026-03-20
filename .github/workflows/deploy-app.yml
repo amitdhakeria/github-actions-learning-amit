@@ -21,6 +21,7 @@ jobs:
                 services: |
                   app
                 up-flags: "--pull always"
+                down-flags: ""
 
 
 
