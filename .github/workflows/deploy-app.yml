@@ -1,0 +1,29 @@
+name: Deploy flask app
+on:
+    workflow_dispatch:
+
+jobs:
+    
+    deploy:
+        runs-on: self-hosted
+        env:
+         DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
+
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+
+            - name: deploy with docket compose
+              uses: hoverkraft-tech/compose-action@v2.5.0
+              env:
+                DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
+
+              with:
+                compose-file: "./docker-compose.yml"
+                services: |
+                  app
+                up-flags: "--pull always"
+
+
+
+    

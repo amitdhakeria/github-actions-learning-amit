@@ -1,0 +1,8 @@
+services:
+
+  app:
+    image: ${{ DOCKERHUB_USER }}/github-action-app:latest
+    container_name: github-action-app
+    restart: always
+    ports:
+     - 80:80

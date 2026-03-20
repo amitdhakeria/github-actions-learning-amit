@@ -16,7 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         environment:
             name: Github-pages
-            url: ${{ steps.deploy.outputs.page_url }}
+            url: ${{ steps.deploy.outputs.page_url }}  # id- 'deploy' ensuring the correct url here 
 
         steps:
 
