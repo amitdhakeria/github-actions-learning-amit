@@ -1,0 +1,22 @@
+#scan the docker file and CVEs
+name: Docker lint
+on:
+
+    workflow_call:
+
+jobs:
+
+    validate-dokerfile:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+
+            - name: Run Hadolint
+              # Uses the Hadolint Docker image to lint the Dockerfile
+              uses: hadolint/hadolint-action@v3.1.0
+              with:
+                # Specify the path to your Dockerfile, default is 'Dockerfile'
+                dockerfile: Dockerfile 
+                # Optional: specify severity levels to ignore (e.g., info, warning, error, style)
+                # ignore: DL3006
