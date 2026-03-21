@@ -1,0 +1,27 @@
+#scan dependency packages issue and vulnerabilities
+
+name: dependency scan
+on:
+    workflow_call:
+
+jobs:
+
+    dependency-scan:
+        runs-on: ubuntu-latest
+        steps:
+
+            - name: code checkout
+              uses: actions/checkout@v4
+
+            - name: setup python
+              # This action autometoically install python and include the "pip" by default 
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.12"
+
+            - name: install depedndecies
+              run: pip install -r requirements.txt
+
+            - name: Run pip audit
+              # This action automatically uses pip-audit to scan the environment
+              uses: pypa/gh-action-pip-audit@v1.0.0 
